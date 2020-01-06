@@ -1,10 +1,7 @@
 import {
     AGREGAR_PRODUCTO,
     AGREGAR_PRODUCTO_EXITO,
-    AGREGAR_PRODUCTO_ERROR,
-    DESCARGA_PRODUCTOS,
-    DESCARGA_PRODUCTOS_EXITO,
-    DESCARGA_PRODUCTOS_ERROR
+    AGREGAR_PRODUCTO_ERROR
   } from "../types";
   import clienteAxios from '../config/axios';
 
@@ -43,32 +40,3 @@ import {
   });
 
   //obtener listado de productos (consultar api)
-  export function obtenerProductosAction() {
-    return (dispatch) => {
-        dispatch( obtenerProductosComienzo() );
-
-        //consultar api
-        clienteAxios.get('/libros')
-        .then(respuesta => {
-
-          dispatch(descargaProductosExito(respuesta.data));
-        })
-        .catch(error => {
-
-          dispatch(descargaProductosError());
-        })
-    }
-  }
-
-  export const obtenerProductosComienzo = () => ({
-    type: DESCARGA_PRODUCTOS
-  })
-
-  export const descargaProductosExito = productos => ({
-    type: DESCARGA_PRODUCTOS_EXITO,
-    payload: productos 
-  })
-
-  export const descargaProductosError = () => ({
-    type: DESCARGA_PRODUCTOS_ERROR
-  })
