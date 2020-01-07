@@ -1,11 +1,6 @@
 {
   "libros": [
     {
-      "id": 1,
-      "nombre": "Aprendiendo Redux",
-      "precio": 30
-    },
-    {
       "id": 2,
       "nombre": "React Hooks",
       "precio": 30
@@ -16,34 +11,14 @@
       "id": 3
     },
     {
-      "nombre": "react",
-      "precio": "10",
+      "nombre": "Android",
+      "precio": "100",
       "id": 4
     },
     {
-      "nombre": "react",
-      "precio": "30",
+      "nombre": "iOS",
+      "precio": "100",
       "id": 5
-    },
-    {
-      "nombre": "react",
-      "precio": "40",
-      "id": 6
-    },
-    {
-      "nombre": "asd",
-      "precio": "1",
-      "id": 7
-    },
-    {
-      "nombre": "q",
-      "precio": "1",
-      "id": 8
-    },
-    {
-      "nombre": "pruea",
-      "precio": "40",
-      "id": 9
     }
   ]
 }
