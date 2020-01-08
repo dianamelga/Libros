@@ -1,11 +1,6 @@
 {
   "libros": [
     {
-      "id": 2,
-      "nombre": "React Hooks",
-      "precio": 30
-    },
-    {
       "nombre": "React",
       "precio": "50",
       "id": 3

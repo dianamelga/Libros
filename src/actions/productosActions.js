@@ -10,7 +10,10 @@ import {
   PRODUCTO_ELIMINADO_ERROR,
   OBTENER_PRODUCTO_EDITAR,
   PRODUCTO_EDITAR_EXITO,
-  PRODUCTO_EDITAR_ERROR
+  PRODUCTO_EDITAR_ERROR,
+  COMENZAR_EDICION_PRODUCTO,
+  PRODUCTO_EDITADO_EXITO,
+  PRODUCTO_EDITADO_ERROR
 } from "../types";
 import clienteAxios from "../config/axios";
 import Swal from "sweetalert2";
@@ -146,4 +149,42 @@ export const editarProductoExito = producto => ({
 
 export const editarProductoError = () => ({
   type: PRODUCTO_EDITAR_ERROR
+})
+
+
+//enviar el producto editado
+export const enviarProductoModificadoAction = producto => {
+  return (dispatch) => {
+    dispatch( enviarProductoModificado() );
+
+    //enviar el producto al api
+    clienteAxios.put(`/librsos/${producto.id}`, producto)
+    .then(respuesta => {
+        console.log(respuesta);
+        dispatch( enviarProductoModificadoExito(respuesta.data) );
+        Swal.fire(
+          'Almacenado!',
+          'El producto fue modificado!',
+          'success'
+        );
+    })
+    .catch(error => {
+        console.log(error);
+        dispatch( enviarProductoModificadoError() );
+    })
+
+  }
+}
+
+export const enviarProductoModificado = () => ({
+  type: COMENZAR_EDICION_PRODUCTO
+})
+
+export const enviarProductoModificadoExito = producto => ({
+  type: PRODUCTO_EDITADO_EXITO,
+  payload: producto 
+})
+
+export const enviarProductoModificadoError = () => ({
+  type: PRODUCTO_EDITADO_ERROR
 })
