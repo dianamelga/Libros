@@ -158,7 +158,7 @@ export const enviarProductoModificadoAction = producto => {
     dispatch( enviarProductoModificado() );
 
     //enviar el producto al api
-    clienteAxios.put(`/librsos/${producto.id}`, producto)
+    clienteAxios.put(`/libros/${producto.id}`, producto)
     .then(respuesta => {
         console.log(respuesta);
         dispatch( enviarProductoModificadoExito(respuesta.data) );
